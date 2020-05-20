@@ -16,9 +16,12 @@ class MyLinkedList {
 public:
     /** Initialize your data structure here. */
     MyLinkedList();
+    /*  delete for free momery*/
+    ~MyLinkedList();
     /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
     int get(int index);
-
+    void createLinkList_tail(int n);//node number
+    void createLinkList_head(int n);//node number
     /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
     void addAtHead(int val);
     /** Append a node of value val to the last element of the linked list. */
@@ -26,7 +29,6 @@ public:
 
     /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
     void addAtIndex(int index, int val);
-
     /** Delete the index-th node in the linked list, if the index is valid. */
     void deleteAtIndex(int index);
     void display();
@@ -37,20 +39,27 @@ private:
 };
 
 int main(){
+    int nodeNumber=4;//生成结点个数
     MyLinkedList *linkedList = new MyLinkedList();
+//    linkedList->createLinkList_head(nodeNumber);
+    linkedList->createLinkList_tail(nodeNumber);
+    linkedList->display();
     linkedList->addAtHead(1);
     linkedList->addAtTail(3);
     linkedList->addAtIndex(1,2);   //链表变为1-> 2-> 3
     linkedList->display();
-    cout<<endl;
-   int temp =  linkedList->get(1);            //返回2
+    int temp = linkedList->get(1);            //返回2
    cout<<temp<<endl;
     linkedList->deleteAtIndex(1);  //现在链表是1-> 3
     linkedList->display();
     temp = linkedList->get(1);
-    cout<<endl;
     cout<<temp;
 }
+// 释放申请的空间
+MyLinkedList::~MyLinkedList() {
+    delete head;
+}
+
 //初始化，不带头结点;
 MyLinkedList::MyLinkedList() {
     head = nullptr;
@@ -155,7 +164,38 @@ void MyLinkedList::display() {
         cout<<temp->val<<"->";
         temp = temp->next;
     }
+    cout<<endl;
 }
 void MyLinkedList::listLength() {
     cout<<this->size<<endl;
+}
+void MyLinkedList::createLinkList_head(int n) {
+    int val;
+        Node* temp =this->head;
+        if(!temp){
+            cin>>val;
+            Node* ptrnode= new Node(val);
+            head = ptrnode;
+        }
+        for(int i=1;i<n;i++){
+                cin>>val;
+            Node* ptrnode= new Node(val);
+            ptrnode->next =head;
+            head=ptrnode;
+        }
+}
+void MyLinkedList::createLinkList_tail(int n) {
+            int val;
+            if(!head){
+              cin>>val;
+              Node* ptrnode = new Node(val);
+              head = ptrnode;
+            }
+            Node* temp = head;
+            for(int i=1;i<n;i++){
+                cin>>val;
+                Node* ptrnode = new Node(val);
+                temp->next = ptrnode;
+                temp =ptrnode;
+            }
 }
