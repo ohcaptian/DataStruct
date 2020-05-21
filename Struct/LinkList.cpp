@@ -161,7 +161,7 @@ void MyLinkedList::display() {
     Node* temp =this->head;
     while(temp)
     {
-        cout<<temp->val<<"->";
+        cout<<temp->val<<" ";
         temp = temp->next;
     }
     cout<<endl;

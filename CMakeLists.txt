@@ -1,11 +1,4 @@
 cmake_minimum_required(VERSION 3.16)
 project(leetcode)
-
 set(CMAKE_CXX_STANDARD 14)
-add_executable(LinkList LinkList.cpp)
-add_executable(List List.cpp)
-add_executable(Queue Queue.cpp)
-add_executable(Vertor Vertor.cpp)
-add_executable(Stack Stack.cpp)
-add_executable(DuLinkList DuLinkList.cpp)
-add_executable(Dulist Dulist.cpp)
+add_subdirectory(Struct)

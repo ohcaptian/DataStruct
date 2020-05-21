@@ -89,7 +89,7 @@ Status ListPrint(SqList &L)
 {
     for (int i = 0; i < L.length; i++)
     {
-        printf("%d", L.elem[i]);
+        printf("%d\t", L.elem[i]);
     }
     cout<<endl;
     return OK;
