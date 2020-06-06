@@ -8,5 +8,6 @@ add_executable(Vector Vector.cpp)
 add_executable(HuffMan HuffMan.cpp)
 add_executable(Graph Graph.cpp)
 add_executable(HashMap HashMap.cpp)
+add_executable(BST BST.cpp)
 
 

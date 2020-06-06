@@ -41,9 +41,9 @@ int LocateVex(AMGraph G,char v);
 Status CreateGraph(AMGraph &G){
     char v1,v2;
     int w;
-    //cout<<"vexnum and arcnum"<<endl;
+    cout<<"Input vexnum and arcnum"<<endl;
     cin>>G.vexnum>>G.arcnum;//顶点数和边数;
-    //cout<<"VerTex"<<endl;
+    cout<<"Input VerTex"<<endl;
     for(int i=0;i<G.vexnum;i++){
         cin>>G.vers[i];
     }
@@ -52,7 +52,7 @@ Status CreateGraph(AMGraph &G){
             G.acrs[i][j]=0;
         }
     }
-    //cout<<"arc and weight";
+    cout<<"Input arc and weight";
     for(int k=0;k<G.arcnum;k++){
         cin>>v1>>v2; //确定一条边
         cin>>w;
